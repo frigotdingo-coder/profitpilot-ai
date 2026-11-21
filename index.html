@@ -1,1 +1,99 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProfitPilot AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1110;color:#e7efeb;font-family:Arial,sans-serif}
+.sidebar{position:fixed;left:0;top:0;width:235px;height:100vh;background:#101917;border-right:1px solid #25342e;padding:26px 18px}
+.logo{font-size:22px;font-weight:bold;color:#8de0b0;margin-bottom:35px}
+.nav{display:block;padding:13px;color:#9eaea6;text-decoration:none;border-radius:9px;margin:5px 0}
+.nav:hover,.nav.active{background:#20332b;color:#9de0b0}
+main{margin-left:235px;padding:35px;max-width:1500px}
+h1{font-size:30px;margin:0 0 10px}
+.sub{color:#91a39a;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{background:#131e1a;border:1px solid #263730;border-radius:15px;padding:22px}
+.label{color:#9eaea6;font-size:14px}
+.value{font-size:28px;font-weight:bold;margin:15px 0}
+.green{color:#80d9a5}
+.chart{margin-top:22px}
+canvas{width:100%;height:260px}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{text-align:left;padding:15px;border-bottom:1px solid #293832}
+th{color:#91a39a}
+button{background:#8de0b0;color:#102018;border:0;padding:12px 18px;border-radius:9px;cursor:pointer;font-weight:bold}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.sidebar{width:190px}main{margin-left:190px;padding:20px}}
+@media(max-width:600px){.sidebar{position:relative;width:100%;height:auto;padding:15px}.logo{margin-bottom:10px}.nav{display:inline-block;padding:8px}main{margin:0;padding:15px}.grid{grid-template-columns:1fr 1fr}h1{font-size:24px}.value{font-size:22px}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+<div class="logo">✦ ProfitPilot AI</div>
+<a class="nav active" href="#">Dashboard</a>
+<a class="nav" href="#">Analytics</a>
+<a class="nav" href="#">Production</a>
+<a class="nav" href="#">Inventory</a>
+<a class="nav" href="#">Finance</a>
+<a class="nav" href="#">AI Insights</a>
+<a class="nav" href="#">Settings</a>
+</aside>
+<main>
+<h1>Business Overview</h1>
+<div class="sub">AI-powered agricultural business intelligence</div>
+<div class="grid">
+<div class="card"><div class="label">Total Revenue</div><div class="value">$284,650</div><div class="green">+12.8%</div></div>
+<div class="card"><div class="label">Net Profit</div><div class="value">$76,420</div><div class="green">+8.4%</div></div>
+<div class="card"><div class="label">Production</div><div class="value">1,842 t</div><div class="green">+5.2%</div></div>
+<div class="card"><div class="label">Profit Margin</div><div class="value">26.8%</div><div class="green">+2.1%</div></div>
+</div>
+<div class="card chart">
+<div class="label">Revenue & Profit Performance</div>
+<canvas id="chart"></canvas>
+</div>
+<div class="card" style="margin-top:22px">
+<div class="label">Production Overview</div>
+<table>
+<thead><tr><th>Crop</th><th>Volume</th><th>Revenue</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Wheat</td><td>840 t</td><td>$124,500</td><td class="green">Stable</td></tr>
+<tr><td>Corn</td><td>620 t</td><td>$98,200</td><td class="green">Growing</td></tr>
+<tr><td>Barley</td><td>382 t</td><td>$61,950</td><td class="green">Stable</td></tr>
+</tbody>
+</table>
+</div>
+<div class="card" style="margin-top:22px">
+<div class="label">AI Business Insight</div>
+<div class="value" style="font-size:20px">Operational efficiency is improving</div>
+<p style="color:#a8b8af">Current indicators suggest positive revenue growth and improved profitability. Review production costs and resource allocation to identify additional savings.</p>
+</div>
+</main>
+<script>
+const c=document.getElementById('chart');
+const ctx=c.getContext('2d');
+function draw(){
+const d=window.devicePixelRatio||1;
+c.width=c.clientWidth*d;
+c.height=260*d;
+ctx.scale(d,d);
+const w=c.clientWidth,h=260;
+ctx.strokeStyle='#293832';
+for(let i=0;i<5;i++){let y=30+i*45;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+const a=[65,85,70,110,95,140,125,170,155,205,190,230];
+function line(data,color){
+ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=3;
+data.forEach((v,i)=>{let x=i*w/(data.length-1),y=h-v;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});
+ctx.stroke();
+}
+line(a,'#8de0b0');
+line(a.map(v=>v*.65),'#65a7d9');
+}
+draw();
+window.addEventListener('resize',()=>draw());
+</script>
+</body>
+</html>
+
