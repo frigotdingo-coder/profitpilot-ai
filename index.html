@@ -4,353 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProfitPilot AI — Управление хозяйством</title>
+<title>ProfitPilot AI</title>
 
-.ai-premium-panel{
-  margin-top:22px;
-  background:#173d2d;
-  border-radius:22px;
-  overflow:hidden;
-  position:relative;
-  color:white;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.ai-premium-inner{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  min-height:320px;
-  align-items:center;
-}
-
-.ai-premium-left{
-  padding:38px 42px;
-  position:relative;
-  z-index:2;
-}
-
-.ai-premium-label{
-  font-size:10px;
-  letter-spacing:2px;
-  color:#a7c29a;
-  font-weight:700;
-}
-
-.ai-premium-title{
-  font-size:28px;
-  font-weight:750;
-  line-height:1.25;
-  letter-spacing:-1px;
-  margin-top:20px;
-}
-
-.ai-premium-description{
-  font-size:13px;
-  line-height:1.8;
-  color:#c7d6ca;
-  max-width:400px;
-  margin-top:15px;
-}
-
-.ai-premium-features{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px 18px;
-  margin-top:20px;
-}
-
-.ai-feature{
-  font-size:11px;
-  color:#d4e0d5;
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-
-.ai-feature-dot{
-  width:6px;
-  height:6px;
-  background:#a6c394;
-  border-radius:50%;
-}
-
-.ai-premium-btn{
-  background:#dce8d6;
-  color:#173d2d;
-  border:0;
-  border-radius:10px;
-  padding:13px 17px;
-  font-size:12px;
-  font-weight:700;
-  margin-top:25px;
-  transition:.2s ease;
-}
-
-.ai-premium-btn:hover{
-  background:white;
-  transform:translateY(-2px);
-}
-
-.ai-premium-visual{
-  min-height:320px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-
-.ai-core{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle,
-    #a4c58f 0%,
-    #648a64 35%,
-    #345c43 70%,
-    #173d2d 100%
-  );
-  box-shadow:
-    0 0 40px #a5c59435,
-    0 0 100px #a5c59420;
-  display:grid;
-  place-items:center;
-  position:relative;
-  z-index:2;
-  animation:aiPulse 4s infinite ease-in-out;
-}
-
-.ai-core-inner{
-  width:92px;
-  height:92px;
-  border:1px solid #ffffff35;
-  border-radius:50%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-.ai-core-star{
-  font-size:24px;
-  color:#e5f2df;
-}
-
-.ai-core-text{
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:2px;
-  color:white;
-}
-
-.ai-orbit{
-  position:absolute;
-  border:1px solid #ffffff15;
-  border-radius:50%;
-}
-
-.orbit1{
-  width:200px;height:200px;
-}
-
-.orbit2{
-  width:270px;height:270px;
-}
-
-.orbit3{
-  width:340px;height:340px;
-  border-color:#ffffff09;
-}
-
-.ai-float{
-  position:absolute;
-  background:#ffffff10;
-  border:1px solid #ffffff20;
-  backdrop-filter:blur(12px);
-  border-radius:12px;
-  padding:13px 16px;
-  box-shadow:0 10px 30px #00000010;
-}
-
-.ai-float-title{
-  font-size:12px;
-  font-weight:700;
-  color:white;
-}
-
-.ai-float-sub{
-  font-size:10px;
-  color:#b7c9ba;
-  margin-top:5px;
-}
-
-.ai-float-1{
-  top:45px;
-  right:15px;
-}
-
-.ai-float-2{
-  bottom:45px;
-  left:15px;
-}
-
-@keyframes aiPulse{
-  0%,100%{
-    transform:scale(1);
-    box-shadow:0 0 40px #a5c59435;
-  }
-  50%{
-    transform:scale(1.04);
-    box-shadow:0 0 65px #a5c59450;
-  }
-}
-
-@media(max-width:900px){
-  .ai-premium-inner{
-    grid-template-columns:1fr;
-  }
-
-  .ai-premium-visual{
-    min-height:270px;
-  }
-}
-
-@media(max-width:500px){
-  .ai-premium-left{
-    padding:28px 22px;
-  }
-
-  .ai-premium-title{
-    font-size:24px;
-  }
-
-  .ai-premium-visual{
-    min-height:260px;
-  }
-
-  .orbit3{
-    width:290px;height:290px;
-  }
-}
- <style>
- 
-/* PROFITPILOT PREMIUM DESIGN UPGRADE */
-
-.main{
-  max-width:1800px;
-}
-
-.card{
-  transition:transform .25s ease,box-shadow .25s ease;
-  box-shadow:0 4px 18px rgba(29,53,38,.025);
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 32px rgba(29,53,38,.07);
-}
-
-.hero{
-  box-shadow:0 20px 50px rgba(23,61,45,.14);
-}
-
-.hero-image{
-  transition:transform 8s ease;
-}
-
-.hero:hover .hero-image{
-  transform:scale(1.035);
-}
-
-.hero-overlay{
-  background:linear-gradient(
-    90deg,
-    rgba(14,42,28,.94) 0%,
-    rgba(14,42,28,.70) 50%,
-    rgba(14,42,28,.12) 100%
-  );
-}
-
-.hero-tag{
-  backdrop-filter:blur(10px);
-  letter-spacing:1px;
-}
-
-.hero h2{
-  font-weight:750;
-  line-height:1.12;
-}
-
-.kpi-icon{
-  background:linear-gradient(145deg,#eef3e9,#dfe9d8);
-  border:1px solid #e5ecdf;
-}
-
-.kpi-value{
-  letter-spacing:-1.4px;
-}
-
-.section-heading{
-  margin-top:36px;
-}
-
-.ai-card{
-  background:linear-gradient(145deg,#173d2d,#244f39 65%,#365d43);
-  box-shadow:0 15px 35px rgba(23,61,45,.12);
-}
-
-.ai-insight{
-  backdrop-filter:blur(10px);
-}
-
-.nav{
-  transition:all .22s ease;
-}
-
-.nav.active{
-  box-shadow:inset 3px 0 0 #a6c394;
-}
-
-.top-btn{
-  transition:.2s ease;
-}
-
-.top-btn:hover{
-  background:#edf3e9;
-  transform:translateY(-2px);
-}
-
-.crop-image{
-  transition:transform .3s ease;
-}
-
-.crop-card:hover .crop-image{
-  transform:scale(1.04);
-}
-
-.progress span{
-  transition:width 1s ease;
-}
-
-.section-page.active{
-  animation:pageFade .35s ease;
-}
-
-@keyframes pageFade{
-  from{opacity:0;transform:translateY(8px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-@media(max-width:750px){
-  .hero-overlay{
-    background:linear-gradient(
-      90deg,
-      rgba(14,42,28,.94),
-      rgba(14,42,28,.68)
-    );
-  }
-}
+<style>
 :root{
  --green:#173d2d;
  --green2:#2f6847;
@@ -363,102 +19,93 @@
 }
 *{box-sizing:border-box}
 body{
- margin:0;
- background:var(--bg);
- color:var(--text);
+ margin:0;background:var(--bg);color:var(--text);
  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 button{font-family:inherit;cursor:pointer}
 .layout{display:flex;min-height:100vh}
 .sidebar{
- width:250px;background:var(--green);color:white;
- padding:28px 18px;position:fixed;top:0;bottom:0;
- display:flex;flex-direction:column;z-index:5;
+ width:250px;background:var(--green);color:white;padding:28px 18px;
+ position:fixed;top:0;bottom:0;display:flex;flex-direction:column;z-index:5;
 }
 .logo{display:flex;align-items:center;gap:12px;margin-bottom:36px;padding:0 8px}
 .logo-mark{
- width:42px;height:42px;border-radius:13px;
- background:#78936c;display:grid;place-items:center;
- font-size:20px;font-weight:700;
+ width:42px;height:42px;border-radius:13px;background:#78936c;
+ display:grid;place-items:center;font-size:20px;font-weight:700;
 }
 .logo-text{font-size:18px;font-weight:700;letter-spacing:-.5px}
 .logo-sub{font-size:10px;color:#b5c5b4;margin-top:4px;letter-spacing:1.4px}
 .nav-label{font-size:10px;letter-spacing:1.6px;color:#92ab99;margin:20px 12px 10px}
 .nav{
- display:flex;align-items:center;gap:12px;padding:12px 14px;
- border-radius:10px;color:#c5d2c7;font-size:13px;
- margin:3px 0;cursor:pointer;transition:.2s;
+ display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;
+ color:#c5d2c7;font-size:13px;margin:3px 0;cursor:pointer;transition:.2s;
 }
 .nav:hover{background:#ffffff12;color:white}
-.nav.active{background:#ffffff17;color:white}
+.nav.active{background:#ffffff17;color:white;box-shadow:inset 3px 0 0 #a6c394}
 .nav svg{width:18px;height:18px;opacity:.8;flex-shrink:0}
 .sidebar-bottom{margin-top:auto}
-.profile{
- border-top:1px solid #ffffff20;padding:20px 8px 0;
- display:flex;gap:12px;align-items:center;
-}
+.profile{border-top:1px solid #ffffff20;padding:20px 8px 0;display:flex;gap:12px;align-items:center}
 .avatar{
- width:36px;height:36px;border-radius:50%;
- background:#d8c6a2;color:#173d2d;
+ width:36px;height:36px;border-radius:50%;background:#d8c6a2;color:#173d2d;
  display:grid;place-items:center;font-weight:700;font-size:13px;
 }
 .profile-name{font-size:13px;font-weight:600}
 .profile-sub{font-size:11px;color:#9fb5a3;margin-top:4px}
-.main{margin-left:250px;width:calc(100% - 250px);padding:30px 38px 60px}
+.main{margin-left:250px;width:calc(100% - 250px);padding:30px 38px 60px;max-width:1800px}
 .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
 .breadcrumb{font-size:12px;color:var(--muted)}
 .top-actions{display:flex;align-items:center;gap:12px}
 .top-btn{
  width:40px;height:40px;background:white;border:1px solid var(--line);
- border-radius:12px;color:var(--text);font-size:16px;
+ border-radius:12px;color:var(--text);font-size:16px;transition:.2s;
 }
+.top-btn:hover{background:#edf3e9;transform:translateY(-2px)}
 .date{font-size:12px;color:var(--muted)}
 h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
 .subtitle{font-size:14px;color:var(--muted);margin-top:9px}
 .hero{
- margin-top:26px;border-radius:20px;overflow:hidden;
- position:relative;min-height:300px;color:white;
- background:#355641;
+ margin-top:26px;border-radius:20px;overflow:hidden;position:relative;
+ min-height:300px;color:white;box-shadow:0 20px 50px rgba(23,61,45,.14);
 }
 .hero-image{
  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+ transition:transform 8s ease;
 }
+.hero:hover .hero-image{transform:scale(1.035)}
 .hero-overlay{
  position:absolute;inset:0;
- background:linear-gradient(90deg,rgba(13,38,26,.90),rgba(13,38,26,.55) 55%,rgba(13,38,26,.08));
+ background:linear-gradient(90deg,rgba(14,38,26,.94),rgba(14,38,26,.65) 55%,rgba(14,38,26,.15));
 }
 .hero-content{position:relative;padding:40px 42px;max-width:700px}
 .hero-tag{
- display:inline-flex;align-items:center;gap:8px;
- background:#ffffff20;border:1px solid #ffffff25;
- padding:8px 12px;border-radius:30px;font-size:11px;color:#e3eee2;
+ display:inline-flex;align-items:center;gap:8px;background:#ffffff20;
+ border:1px solid #ffffff25;padding:8px 12px;border-radius:30px;
+ font-size:11px;color:#e3eee2;letter-spacing:1px;backdrop-filter:blur(10px);
 }
-.hero h2{font-size:34px;line-height:1.18;letter-spacing:-1px;margin:22px 0 12px}
+.hero h2{font-size:34px;line-height:1.12;letter-spacing:-1px;margin:22px 0 12px;font-weight:750}
 .hero p{font-size:14px;color:#e1e8df;line-height:1.7;max-width:450px}
 .hero-btn{
- margin-top:18px;background:white;color:var(--green);
- border:0;padding:13px 19px;border-radius:10px;
- font-size:13px;font-weight:600;
+ margin-top:18px;background:white;color:var(--green);border:0;
+ padding:13px 19px;border-radius:10px;font-size:13px;font-weight:600;
 }
-.section-heading{
- display:flex;justify-content:space-between;align-items:center;
- margin:32px 0 17px;
-}
+.section-heading{display:flex;justify-content:space-between;align-items:center;margin:36px 0 17px}
 .section-heading h3{font-size:17px;letter-spacing:-.4px;margin:0}
 .small-link{font-size:12px;color:var(--green2)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .card{
- background:white;border:1px solid var(--line);
- border-radius:16px;padding:22px;
+ background:white;border:1px solid var(--line);border-radius:16px;padding:22px;
+ transition:transform .25s ease,box-shadow .25s ease;
+ box-shadow:0 4px 18px rgba(29,53,38,.025);
 }
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(29,53,38,.07)}
 .kpi-label{font-size:12px;color:var(--muted)}
-.kpi-value{font-size:27px;font-weight:700;letter-spacing:-1px;margin-top:12px}
+.kpi-value{font-size:27px;font-weight:700;letter-spacing:-1.4px;margin-top:12px}
 .kpi-foot{font-size:11px;margin-top:12px;color:var(--muted)}
 .up{color:#397b50}
 .kpi-icon{
- width:35px;height:35px;border-radius:10px;
- background:#edf3e9;display:grid;place-items:center;
- font-size:16px;margin-bottom:16px;color:var(--green2)
+ width:35px;height:35px;border-radius:10px;background:linear-gradient(145deg,#eef3e9,#dfe9d8);
+ display:grid;place-items:center;font-size:16px;margin-bottom:16px;color:var(--green2);
+ border:1px solid #e5ecdf;
 }
 .middle-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
 .chart-card{min-height:310px}
@@ -468,28 +115,28 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
 .chart-wrap{height:210px;margin-top:20px}
 .chart-wrap svg{width:100%;height:100%}
 .ai-card{
- background:var(--green);color:white;border-radius:16px;
- padding:24px;position:relative;overflow:hidden;
+ background:linear-gradient(145deg,#173d2d,#244f39 65%,#365d43);
+ color:white;border-radius:16px;padding:24px;position:relative;overflow:hidden;
+ box-shadow:0 15px 35px rgba(23,61,45,.12);
 }
 .ai-top{display:flex;justify-content:space-between;align-items:center}
-.ai-tag{
- background:#ffffff15;border:1px solid #ffffff20;
- border-radius:30px;padding:7px 11px;font-size:10px;
-}
+.ai-tag{background:#ffffff15;border:1px solid #ffffff20;border-radius:30px;padding:7px 11px;font-size:10px}
 .ai-card h3{font-size:20px;margin:22px 0 12px;letter-spacing:-.5px}
 .ai-card p{font-size:13px;color:#c4d3c7;line-height:1.75}
 .ai-insight{
- background:#ffffff12;border:1px solid #ffffff18;
- border-radius:12px;padding:15px;margin-top:20px;
- font-size:12px;line-height:1.7;color:#e0e9e1;
+ background:#ffffff12;border:1px solid #ffffff18;border-radius:12px;
+ padding:15px;margin-top:20px;font-size:12px;line-height:1.7;color:#e0e9e1;
+ backdrop-filter:blur(10px);
 }
 .ai-button{
  margin-top:20px;background:#dce8d6;color:var(--green);
  padding:12px 16px;border:0;border-radius:10px;font-weight:600;font-size:12px;
 }
+.ai-button:hover{background:white}
 .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .crop-card{display:flex;gap:16px;align-items:center;margin-top:18px}
-.crop-image{width:72px;height:72px;border-radius:12px;object-fit:cover}
+.crop-image{width:72px;height:72px;border-radius:12px;object-fit:cover;transition:transform .3s}
+.crop-card:hover .crop-image{transform:scale(1.04)}
 .crop-info{flex:1}
 .crop-name{font-size:13px;font-weight:600}
 .crop-desc{font-size:11px;color:var(--muted);margin-top:6px}
@@ -502,11 +149,70 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
 .event-text{font-size:12px;line-height:1.6}
 .event-time{font-size:10px;color:var(--muted);margin-top:4px}
 .section-page{display:none}
-.section-page.active{display:block}
-.mobile-menu{display:none}
+.section-page.active{display:block;animation:pageFade .35s ease}
+@keyframes pageFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* PREMIUM AI PANEL */
+.ai-premium-panel{
+ margin-top:22px;background:#173d2d;border-radius:22px;overflow:hidden;
+ position:relative;color:white;border:1px solid rgba(255,255,255,.08);
+ box-shadow:0 15px 35px rgba(23,61,45,.12);
+}
+.ai-premium-inner{display:grid;grid-template-columns:1.2fr 1fr;min-height:320px;align-items:center}
+.ai-premium-left{padding:38px 42px;position:relative;z-index:2}
+.ai-premium-label{font-size:10px;letter-spacing:2px;color:#a7c29a;font-weight:700}
+.ai-premium-title{font-size:28px;font-weight:750;line-height:1.25;letter-spacing:-1px;margin-top:20px}
+.ai-premium-description{font-size:13px;line-height:1.8;color:#c7d6ca;max-width:400px;margin-top:15px}
+.ai-premium-features{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:20px}
+.ai-feature{font-size:11px;color:#d4e0d5;display:flex;align-items:center;gap:7px}
+.ai-feature-dot{width:6px;height:6px;background:#a6c394;border-radius:50%}
+.ai-premium-btn{
+ background:#dce8d6;color:#173d2d;border:0;border-radius:10px;
+ padding:13px 17px;font-size:12px;font-weight:700;margin-top:25px;transition:.2s;
+}
+.ai-premium-btn:hover{background:white;transform:translateY(-2px)}
+.ai-premium-visual{
+ min-height:320px;position:relative;display:flex;align-items:center;
+ justify-content:center;overflow:hidden;
+}
+.ai-core{
+ width:130px;height:130px;border-radius:50%;
+ background:radial-gradient(circle,#a4c58f 0%,#648a64 35%,#345c43 70%,#173d2d 100%);
+ box-shadow:0 0 40px #a5c59435,0 0 100px #a5c59420;
+ display:grid;place-items:center;position:relative;z-index:2;
+ animation:aiPulse 4s infinite ease-in-out;
+}
+.ai-core-inner{
+ width:92px;height:92px;border:1px solid #ffffff35;border-radius:50%;
+ display:flex;flex-direction:column;justify-content:center;align-items:center;
+}
+.ai-core-star{font-size:24px;color:#e5f2df}
+.ai-core-text{font-size:18px;font-weight:700;letter-spacing:2px;color:white}
+.ai-orbit{position:absolute;border:1px solid #ffffff15;border-radius:50%}
+.orbit1{width:200px;height:200px}
+.orbit2{width:270px;height:270px}
+.orbit3{width:340px;height:340px;border-color:#ffffff09}
+.ai-float{
+ position:absolute;background:#ffffff10;border:1px solid #ffffff20;
+ backdrop-filter:blur(12px);border-radius:12px;padding:13px 16px;
+ box-shadow:0 10px 30px #00000010;
+}
+.ai-float-title{font-size:12px;font-weight:700;color:white}
+.ai-float-sub{font-size:10px;color:#b7c9ba;margin-top:5px}
+.ai-float-1{top:45px;right:15px}
+.ai-float-2{bottom:45px;left:15px}
+@keyframes aiPulse{
+ 0%,100%{transform:scale(1);box-shadow:0 0 40px #a5c59435}
+ 50%{transform:scale(1.04);box-shadow:0 0 65px #a5c59450}
+}
+
 @media(max-width:1150px){
  .kpis{grid-template-columns:repeat(2,1fr)}
  .middle-grid,.bottom-grid{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+ .ai-premium-inner{grid-template-columns:1fr}
+ .ai-premium-visual{min-height:270px}
 }
 @media(max-width:750px){
  .sidebar{width:70px;padding:20px 8px}
@@ -524,6 +230,13 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
  .kpi-value{font-size:22px}
  .topbar{gap:10px}
  .date{display:none}
+ .hero-overlay{background:linear-gradient(90deg,rgba(14,42,28,.94),rgba(14,42,28,.68))}
+}
+@media(max-width:500px){
+ .ai-premium-left{padding:28px 22px}
+ .ai-premium-title{font-size:24px}
+ .ai-premium-visual{min-height:260px}
+ .orbit3{width:290px;height:290px}
 }
 @media(max-width:420px){
  .kpis{grid-template-columns:1fr}
@@ -532,6 +245,7 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
 }
 </style>
 </head>
+
 <body>
 <div class="layout">
 
@@ -545,29 +259,37 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
  </div>
 
  <div class="nav-label">WORKSPACE</div>
+
  <div class="nav active" onclick="showPage('home',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Обзор</span>
  </div>
+
  <div class="nav" onclick="showPage('crops',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21V10M12 14C5 14 4 8 4 5c5 0 8 2 8 7M12 12c0-6 4-9 8-9 0 5-2 9-8 9"/></svg><span>Растениеводство</span>
  </div>
+
  <div class="nav" onclick="showPage('livestock',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 10l-2-3 4 1M19 10l2-3-4 1M7 9h10a2 2 0 012 2v5a4 4 0 01-4 4h-4a4 4 0 01-4-4v-5a2 2 0 012-2z"/><path d="M9 13h.01M15 13h.01M10 16h4"/></svg><span>Животноводство</span>
  </div>
+
  <div class="nav" onclick="showPage('finance',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18M7 14l4-4 3 3 6-7"/></svg><span>Финансы</span>
  </div>
 
  <div class="nav-label">INTELLIGENCE</div>
+
  <div class="nav" onclick="showPage('ai',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.3 5.7L20 11l-5.7 2.3L12 19l-2.3-5.7L4 11l5.7-2.3L12 3z"/><path d="M19 16l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/></svg><span>AI Аналитика</span>
  </div>
+
  <div class="nav" onclick="showPage('simulator',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5m0 14h16M7 15l4-4 3 3 5-7"/></svg><span>Симулятор</span>
  </div>
+
  <div class="nav" onclick="showPage('reports',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3h14v18H5zM8 8h8M8 12h8M8 16h5"/></svg><span>Отчёты</span>
  </div>
+
  <div class="nav" onclick="showPage('data',this)">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v7c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12v7c0 1.7 4 3 9 3s9-1.3 9-3v-7"/></svg><span>Данные предприятия</span>
  </div>
@@ -576,6 +298,7 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
   <div class="nav" onclick="showPage('settings',this)">
    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21h-2.6v-.2a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.8.3l-.1.1-1.8-1.8.1-.1A1.7 1.7 0 007 16a1.7 1.7 0 00-1.5-1H5v-2.6h.2a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.8l-.1-.1 1.8-1.8.1.1A1.7 1.7 0 0010 7a1.7 1.7 0 001-1.5V5h2.6v.2a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 00-.3 1.8 1.7 1.7 0 001.5 1H21v2.6h-.2a1.7 1.7 0 00-1.4 1z"/></svg><span>Настройки</span>
   </div>
+
   <div class="profile">
    <div class="avatar">АЯ</div>
    <div class="profile-info">
@@ -596,278 +319,302 @@ h1{font-size:30px;letter-spacing:-1.2px;margin:0;font-weight:700}
   </div>
  </div>
 
- <section class="section-page active" id="home">
-  <h1>Добро пожаловать</h1>
-  <div class="subtitle">Управляйте хозяйством. Контролируйте результат.</div>
+<!-- HOME -->
+<section class="section-page active" id="home">
 
-  <div class="hero">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85" alt="Пейзаж сельскохозяйственных полей">
-   <div class="hero-overlay"></div>
-   <div class="hero-content">
-    <div class="hero-tag">✦ ИНТЕЛЛЕКТУАЛЬНАЯ СИСТЕМА УПРАВЛЕНИЯ</div>
-    <h2>Ваше хозяйство.<br>Ваши решения.<br>Ваш результат.</h2>
-    <p>ProfitPilot AI объединяет данные, процессы и искусственный интеллект в единую систему управления агробизнесом.</p>
-    <button class="hero-btn" onclick="showPage('ai',null)">Открыть AI аналитика →</button>
-   </div>
+ <h1>Добро пожаловать</h1>
+ <div class="subtitle">Управляйте хозяйством. Контролируйте результат.</div>
+
+ <div class="hero">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85" alt="Сельскохозяйственные поля">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+   <div class="hero-tag">✦ ИНТЕЛЛЕКТУАЛЬНАЯ СИСТЕМА УПРАВЛЕНИЯ</div>
+   <h2>Ваше хозяйство.<br>Ваши решения.<br>Ваш результат.</h2>
+   <p>ProfitPilot AI объединяет данные, процессы и искусственный интеллект в единую систему управления агробизнесом.</p>
+   <button class="hero-btn" onclick="showPage('ai',null)">Открыть AI аналитика →</button>
   </div>
+ </div>
 
-  <div class="section-heading">
-   <h3>Ключевые показатели</h3>
-   <span class="small-link">Демо-данные</span>
-  </div>
-
-  <div class="kpis">
-   <div class="card">
-    <div class="kpi-icon">⌖</div>
-    <div class="kpi-label">Земельный фонд</div>
-    <div class="kpi-value">4 820 <span style="font-size:15px">га</span></div>
-    <div class="kpi-foot">Земли в управлении</div>
-   </div>
-   <div class="card">
-    <div class="kpi-icon">◈</div>
-    <div class="kpi-label">Поголовье</div>
-    <div class="kpi-value">1 240</div>
-    <div class="kpi-foot">Голов скота</div>
-   </div>
-   <div class="card">
-    <div class="kpi-icon">↗</div>
-    <div class="kpi-label">Выручка</div>
-    <div class="kpi-value">48,6 <span style="font-size:15px">млн ₽</span></div>
-    <div class="kpi-foot"><span class="up">↑ 12,8%</span> к предыдущему периоду</div>
-   </div>
-   <div class="card">
-    <div class="kpi-icon">◎</div>
-    <div class="kpi-label">Прибыль</div>
-    <div class="kpi-value">12,4 <span style="font-size:15px">млн ₽</span></div>
-    <div class="kpi-foot"><span class="up">↑ 8,4%</span> к предыдущему периоду</div>
-   </div>
-  </div>
-
-  <div class="section-heading">
-   <h3>Финансовая динамика</h3>
-   <span class="small-link">2026 · демо</span>
-  </div>
-
-  <div class="middle-grid">
-   <div class="card chart-card">
-    <div class="chart-head">
-     <h3>Доходы и расходы</h3>
-     <span>млн ₽</span>
+<!-- PREMIUM AI -->
+ <div class="ai-premium-panel">
+  <div class="ai-premium-inner">
+   <div class="ai-premium-left">
+    <div class="ai-premium-label">PROFITPILOT INTELLIGENCE</div>
+    <div class="ai-premium-title">Ваш интеллектуальный<br>центр управления</div>
+    <div class="ai-premium-description">
+     Анализ производственных, финансовых и операционных показателей предприятия в единой системе.
     </div>
-    <div class="chart-wrap">
-     <svg viewBox="0 0 600 220" preserveAspectRatio="none">
-      <g stroke="#edf0eb" stroke-width="1">
-       <line x1="40" y1="25" x2="580" y2="25"/>
-       <line x1="40" y1="65" x2="580" y2="65"/>
-       <line x1="40" y1="105" x2="580" y2="105"/>
-       <line x1="40" y1="145" x2="580" y2="145"/>
-       <line x1="40" y1="185" x2="580" y2="185"/>
-      </g>
-      <g fill="#96a098" font-size="10">
-       <text x="5" y="29">50</text>
-       <text x="5" y="69">40</text>
-       <text x="5" y="109">30</text>
-       <text x="5" y="149">20</text>
-       <text x="5" y="189">10</text>
-      </g>
-      <path d="M60 160 L140 145 L220 120 L300 110 L380 90 L460 65 L540 40 L540 185 L60 185 Z" fill="#e5eee2"/>
-      <path d="M60 160 L140 145 L220 120 L300 110 L380 90 L460 65 L540 40" fill="none" stroke="#477451" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M60 177 L140 169 L220 160 L300 145 L380 130 L460 120 L540 105" fill="none" stroke="#b6aa85" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      <g fill="#477451">
-       <circle cx="60" cy="160" r="4"/><circle cx="140" cy="145" r="4"/><circle cx="220" cy="120" r="4"/><circle cx="300" cy="110" r="4"/><circle cx="380" cy="90" r="4"/><circle cx="460" cy="65" r="4"/><circle cx="540" cy="40" r="4"/>
-      </g>
-      <g fill="#96a098" font-size="10" text-anchor="middle">
-       <text x="60" y="210">Янв</text><text x="140" y="210">Фев</text><text x="220" y="210">Мар</text><text x="300" y="210">Апр</text><text x="380" y="210">Май</text><text x="460" y="210">Июн</text><text x="540" y="210">Июл</text>
-      </g>
-     </svg>
+    <div class="ai-premium-features">
+     <div class="ai-feature"><span class="ai-feature-dot"></span>Анализ эффективности</div>
+     <div class="ai-feature"><span class="ai-feature-dot"></span>Прогнозирование</div>
+     <div class="ai-feature"><span class="ai-feature-dot"></span>Выявление рисков</div>
     </div>
-    <div style="display:flex;gap:20px;font-size:11px;color:#849087;margin-top:5px">
-     <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#477451;margin-right:6px"></span>Доходы</span>
-     <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#b6aa85;margin-right:6px"></span>Расходы</span>
-    </div>
+    <button class="ai-premium-btn" onclick="showPage('ai',null)">Открыть AI центр →</button>
    </div>
 
-   <div class="ai-card">
-    <div class="ai-top">
-     <div style="font-size:14px;font-weight:600">ProfitPilot Intelligence</div>
-     <div class="ai-tag">AI INSIGHT</div>
-    </div>
-    <h3>Аналитика нового уровня</h3>
-    <p>Искусственный интеллект анализирует производственные и финансовые показатели, выявляет риски и помогает принимать решения.</p>
-    <div class="ai-insight">
-     <strong>Рекомендация системы</strong><br>
-     Сравните затраты на удобрения по полям. Оптимизация норм внесения может повысить эффективность использования ресурсов.
-    </div>
-    <button class="ai-button" onclick="showPage('ai',null)">Перейти к аналитике →</button>
-   </div>
-  </div>
+   <div class="ai-premium-visual">
+    <div class="ai-orbit orbit1"></div>
+    <div class="ai-orbit orbit2"></div>
+    <div class="ai-orbit orbit3"></div>
 
-  <div class="section-heading">
-   <h3>Производство и события</h3>
-  </div>
-
-  <div class="bottom-grid">
-   <div class="card">
-    <div class="chart-head"><h3>Растениеводство</h3><span>Сезон 2026</span></div>
-    <div class="crop-card">
-     <img class="crop-image" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=400&q=80" alt="Поля">
-     <div class="crop-info">
-      <div class="crop-name">Пшеница</div>
-      <div class="crop-desc">План урожайности</div>
-      <div class="progress"><span style="width:76%"></span></div>
+    <div class="ai-core">
+     <div class="ai-core-inner">
+      <span class="ai-core-star">✦</span>
+      <span class="ai-core-text">AI</span>
      </div>
-     <div class="crop-percent">76%</div>
     </div>
-    <div class="crop-card">
-     <img class="crop-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="Зерновые поля">
-     <div class="crop-info">
-      <div class="crop-name">Кукуруза</div>
-      <div class="crop-desc">План урожайности</div>
-      <div class="progress"><span style="width:58%"></span></div>
-     </div>
-     <div class="crop-percent">58%</div>
-    </div>
-    <div class="crop-card">
-     <img class="crop-image" src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=400&q=80" alt="Сельское хозяйство">
-     <div class="crop-info">
-      <div class="crop-name">Подсолнечник</div>
-      <div class="crop-desc">План урожайности</div>
-      <div class="progress"><span style="width:42%"></span></div>
-     </div>
-     <div class="crop-percent">42%</div>
-    </div>
-   </div>
 
-   <div class="card">
-    <div class="chart-head"><h3>Последние события</h3><span>Журнал</span></div>
-    <div class="event">
-     <div class="event-dot"></div>
-     <div><div class="event-text">Обновлены показатели финансового отчёта</div><div class="event-time">Сегодня · 10:42</div></div>
+    <div class="ai-float ai-float-1">
+     <div class="ai-float-title">Аналитика</div>
+     <div class="ai-float-sub">Data intelligence</div>
     </div>
-    <div class="event">
-     <div class="event-dot"></div>
-     <div><div class="event-text">Добавлены данные по посевной площади</div><div class="event-time">Сегодня · 09:18</div></div>
-    </div>
-    <div class="event">
-     <div class="event-dot"></div>
-     <div><div class="event-text">Планирование сезонных расходов</div><div class="event-time">Вчера · 16:30</div></div>
-    </div>
-    <div class="event">
-     <div class="event-dot"></div>
-     <div><div class="event-text">Анализ производственных показателей</div><div class="event-time">Вчера · 11:05</div></div>
+
+    <div class="ai-float ai-float-2">
+     <div class="ai-float-title">Прогноз</div>
+     <div class="ai-float-sub">Smart planning</div>
     </div>
    </div>
   </div>
- </section>
+ </div>
 
- <section class="section-page" id="crops">
-  <h1>Растениеводство</h1>
-  <div class="subtitle">Управление посевами, полями и урожайностью</div>
-  <div class="hero" style="margin-top:25px;min-height:240px">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85" alt="Поля">
-   <div class="hero-overlay"></div>
-   <div class="hero-content"><h2>Земля.<br>Рост. Урожай.</h2><p>Контроль земельного фонда и производственных процессов.</p></div>
-  </div>
-  <div class="section-heading"><h3>Структура посевов</h3></div>
-  <div class="kpis">
-   <div class="card"><div class="kpi-label">Пшеница</div><div class="kpi-value">2 100 га</div><div class="kpi-foot">44% земель</div></div>
-   <div class="card"><div class="kpi-label">Кукуруза</div><div class="kpi-value">1 240 га</div><div class="kpi-foot">26% земель</div></div>
-   <div class="card"><div class="kpi-label">Подсолнечник</div><div class="kpi-value">980 га</div><div class="kpi-foot">20% земель</div></div>
-   <div class="card"><div class="kpi-label">Другие культуры</div><div class="kpi-value">500 га</div><div class="kpi-foot">10% земель</div></div>
-  </div>
-  <div class="card" style="margin-top:20px"><h3>Производственный план</h3><p class="subtitle">Модуль растениеводства будет расширен инструментами учета полей, урожайности, затрат и агротехнологий.</p></div>
- </section>
+ <div class="section-heading">
+  <h3>Ключевые показатели</h3>
+  <span class="small-link">Демо-данные</span>
+ </div>
 
- <section class="section-page" id="livestock">
-  <h1>Животноводство</h1>
-  <div class="subtitle">Контроль поголовья и производственных показателей</div>
-  <div class="hero" style="margin-top:25px;min-height:240px">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1600&q=85" alt="Коровы">
-   <div class="hero-overlay"></div>
-   <div class="hero-content"><h2>Здоровое стадо.<br>Сильное хозяйство.</h2><p>Мониторинг животных, продуктивности и затрат.</p></div>
+ <div class="kpis">
+  <div class="card">
+   <div class="kpi-icon">⌖</div>
+   <div class="kpi-label">Земельный фонд</div>
+   <div class="kpi-value">4 820 <span style="font-size:15px">га</span></div>
+   <div class="kpi-foot">Земли в управлении</div>
   </div>
-  <div class="section-heading"><h3>Показатели поголовья</h3></div>
-  <div class="kpis">
-   <div class="card"><div class="kpi-label">Общее поголовье</div><div class="kpi-value">1 240</div><div class="kpi-foot">Голов</div></div>
-   <div class="card"><div class="kpi-label">Дойное стадо</div><div class="kpi-value">460</div><div class="kpi-foot">Голов</div></div>
-   <div class="card"><div class="kpi-label">Молодняк</div><div class="kpi-value">320</div><div class="kpi-foot">Голов</div></div>
-   <div class="card"><div class="kpi-label">Средний удой</div><div class="kpi-value">—</div><div class="kpi-foot">Данные не введены</div></div>
-  </div>
-  <div class="card" style="margin-top:20px"><h3>Управление животноводством</h3><p class="subtitle">В дальнейшем здесь появятся учет животных, молочная продуктивность, кормление, ветеринария и анализ себестоимости.</p></div>
- </section>
 
- <section class="section-page" id="finance">
-  <h1>Финансы</h1>
-  <div class="subtitle">Финансовая прозрачность и контроль прибыльности</div>
-  <div class="section-heading"><h3>Финансовый обзор</h3></div>
-  <div class="kpis">
-   <div class="card"><div class="kpi-label">Выручка</div><div class="kpi-value">48,6 млн ₽</div><div class="kpi-foot">Демо-данные</div></div>
-   <div class="card"><div class="kpi-label">Расходы</div><div class="kpi-value">36,2 млн ₽</div><div class="kpi-foot">Демо-данные</div></div>
-   <div class="card"><div class="kpi-label">Прибыль</div><div class="kpi-value">12,4 млн ₽</div><div class="kpi-foot">Демо-данные</div></div>
-   <div class="card"><div class="kpi-label">Рентабельность</div><div class="kpi-value">25,5%</div><div class="kpi-foot">Демо-данные</div></div>
+  <div class="card">
+   <div class="kpi-icon">◈</div>
+   <div class="kpi-label">Поголовье</div>
+   <div class="kpi-value">1 240</div>
+   <div class="kpi-foot">Голов скота</div>
   </div>
-  <div class="card" style="margin-top:20px"><h3>Финансовое управление</h3><p class="subtitle">Будущий модуль позволит вести бюджет, денежный поток, себестоимость продукции и финансовые сценарии.</p></div>
- </section>
 
- <section class="section-page" id="ai">
-  <h1>AI Аналитика</h1>
-  <div class="subtitle">Интеллектуальный центр принятия решений</div>
-  <div class="hero" style="margin-top:25px;min-height:240px">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=85" alt="Природа">
-   <div class="hero-overlay"></div>
-   <div class="hero-content"><div class="hero-tag">✦ ARTIFICIAL INTELLIGENCE</div><h2>Данные превращаются<br>в решения.</h2><p>Анализируйте риски, находите возможности и планируйте будущее предприятия.</p></div>
+  <div class="card">
+   <div class="kpi-icon">↗</div>
+   <div class="kpi-label">Выручка</div>
+   <div class="kpi-value">48,6 <span style="font-size:15px">млн ₽</span></div>
+   <div class="kpi-foot"><span class="up">↑ 12,8%</span> к предыдущему периоду</div>
   </div>
-  <div class="section-heading"><h3>Интеллектуальные инструменты</h3></div>
-  <div class="bottom-grid">
-   <div class="ai-card"><h3>Анализ эффективности</h3><p>Анализ доходов, затрат, производственных показателей и потенциальных отклонений.</p><div class="ai-insight">Цель: выявлять неэффективные процессы и возможные точки роста.</div></div>
-   <div class="ai-card"><h3>Прогнозирование</h3><p>Сценарное планирование урожайности, себестоимости, доходов и рисков.</p><div class="ai-insight">Цель: принимать решения на основе данных и сценариев.</div></div>
-   <div class="ai-card"><h3>Рекомендации</h3><p>Интеллектуальные рекомендации по оптимизации ресурсов и производственных процессов.</p><div class="ai-insight">Цель: оптимизировать управление хозяйством.</div></div>
-   <div class="ai-card"><h3>Контроль рисков</h3><p>Выявление отклонений в показателях, расходов и производственных планов.</p><div class="ai-insight">Цель: предупреждать потенциальные проблемы.</div></div>
-  </div>
- </section>
 
- <section class="section-page" id="simulator">
-  <h1>Симулятор хозяйства</h1>
-  <div class="subtitle">Сценарное моделирование и прогнозирование</div>
-  <div class="hero" style="margin-top:25px;min-height:240px">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=1600&q=85" alt="Агропейзаж">
-   <div class="hero-overlay"></div>
-   <div class="hero-content"><h2>Планируйте.<br>Моделируйте.<br>Выбирайте.</h2><p>Сценарии развития предприятия и оценка решений.</p></div>
+  <div class="card">
+   <div class="kpi-icon">◎</div>
+   <div class="kpi-label">Прибыль</div>
+   <div class="kpi-value">12,4 <span style="font-size:15px">млн ₽</span></div>
+   <div class="kpi-foot"><span class="up">↑ 8,4%</span> к предыдущему периоду</div>
   </div>
-  <div class="card" style="margin-top:20px"><h3>Сценарное планирование</h3><p class="subtitle">Модуль будет включать моделирование затрат, цен, урожайности и финансовых результатов.</p></div>
- </section>
+ </div>
 
- <section class="section-page" id="reports">
-  <h1>Отчёты</h1>
-  <div class="subtitle">Сводная аналитика предприятия</div>
-  <div class="section-heading"><h3>Центр отчетности</h3></div>
-  <div class="bottom-grid">
-   <div class="card"><div class="kpi-icon">▤</div><h3>Финансовые отчёты</h3><p class="subtitle">Выручка, расходы, прибыль, бюджет.</p></div>
-   <div class="card"><div class="kpi-icon">▤</div><h3>Производственные отчёты</h3><p class="subtitle">Поля, урожайность, поголовье, продукция.</p></div>
-   <div class="card"><div class="kpi-icon">▤</div><h3>Аналитические отчёты</h3><p class="subtitle">Показатели эффективности и динамика.</p></div>
-   <div class="card"><div class="kpi-icon">▤</div><h3>Отчёты AI</h3><p class="subtitle">Прогнозы, сценарии и рекомендации.</p></div>
+ <div class="section-heading"><h3>Финансовая динамика</h3><span class="small-link">2026 · демо</span></div>
+
+ <div class="middle-grid">
+  <div class="card chart-card">
+   <div class="chart-head"><h3>Доходы и расходы</h3><span>млн ₽</span></div>
+   <div class="chart-wrap">
+    <svg viewBox="0 0 600 220" preserveAspectRatio="none">
+     <g stroke="#edf0eb" stroke-width="1">
+      <line x1="40" y1="25" x2="580" y2="25"/>
+      <line x1="40" y1="65" x2="580" y2="65"/>
+      <line x1="40" y1="105" x2="580" y2="105"/>
+      <line x1="40" y1="145" x2="580" y2="145"/>
+      <line x1="40" y1="185" x2="580" y2="185"/>
+     </g>
+     <g fill="#96a098" font-size="10">
+      <text x="5" y="29">50</text><text x="5" y="69">40</text>
+      <text x="5" y="109">30</text><text x="5" y="149">20</text>
+      <text x="5" y="189">10</text>
+     </g>
+     <path d="M60 160 L140 145 L220 120 L300 110 L380 90 L460 65 L540 40 L540 185 L60 185 Z" fill="#e5eee2"/>
+     <path d="M60 160 L140 145 L220 120 L300 110 L380 90 L460 65 L540 40" fill="none" stroke="#477451" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+     <path d="M60 177 L140 169 L220 160 L300 145 L380 130 L460 120 L540 105" fill="none" stroke="#b6aa85" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+     <g fill="#477451">
+      <circle cx="60" cy="160" r="4"/><circle cx="140" cy="145" r="4"/><circle cx="220" cy="120" r="4"/><circle cx="300" cy="110" r="4"/><circle cx="380" cy="90" r="4"/><circle cx="460" cy="65" r="4"/><circle cx="540" cy="40" r="4"/>
+     </g>
+     <g fill="#96a098" font-size="10" text-anchor="middle">
+      <text x="60" y="210">Янв</text><text x="140" y="210">Фев</text><text x="220" y="210">Мар</text><text x="300" y="210">Апр</text><text x="380" y="210">Май</text><text x="460" y="210">Июн</text><text x="540" y="210">Июл</text>
+     </g>
+    </svg>
+   </div>
+   <div style="display:flex;gap:20px;font-size:11px;color:#849087;margin-top:5px">
+    <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#477451;margin-right:6px"></span>Доходы</span>
+    <span><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#b6aa85;margin-right:6px"></span>Расходы</span>
+   </div>
   </div>
- </section>
 
- <section class="section-page" id="data">
-  <h1>Данные предприятия</h1>
-  <div class="subtitle">Единая база данных сельскохозяйственного предприятия</div>
-  <div class="section-heading"><h3>Структура данных</h3></div>
-  <div class="bottom-grid">
-   <div class="card"><h3>Земельный фонд</h3><p class="subtitle">Поля, площадь, культуры, характеристики.</p></div>
-   <div class="card"><h3>Животные</h3><p class="subtitle">Поголовье, категории, продуктивность.</p></div>
-   <div class="card"><h3>Финансы</h3><p class="subtitle">Доходы, расходы, инвестиции.</p></div>
-   <div class="card"><h3>Ресурсы</h3><p class="subtitle">Техника, материалы, персонал.</p></div>
+  <div class="ai-card">
+   <div class="ai-top">
+    <div style="font-size:14px;font-weight:600">ProfitPilot Intelligence</div>
+    <div class="ai-tag">AI INSIGHT</div>
+   </div>
+   <h3>Аналитика нового уровня</h3>
+   <p>Искусственный интеллект анализирует производственные и финансовые показатели, выявляет риски и помогает принимать решения.</p>
+   <div class="ai-insight">
+    <strong>Рекомендация системы</strong><br>
+    Сравните затраты на удобрения по полям. Оптимизация норм внесения может повысить эффективность использования ресурсов.
+   </div>
+   <button class="ai-button" onclick="showPage('ai',null)">Перейти к аналитике →</button>
   </div>
- </section>
+ </div>
 
- <section class="section-page" id="settings">
-  <h1>Настройки</h1>
-  <div class="subtitle">Управление рабочей средой ProfitPilot AI</div>
-  <div class="card" style="margin-top:25px"><h3>Профиль</h3><p class="subtitle">Арина Я. · Администратор</p></div>
-  <div class="card" style="margin-top:15px"><h3>Рабочая среда</h3><p class="subtitle">ProfitPilot AI · Agricultural Intelligence</p></div>
-  <div class="card" style="margin-top:15px"><h3>Версия платформы</h3><p class="subtitle">Дизайн-прототип · 2026</p></div>
- </section>
+ <div class="section-heading"><h3>Производство и события</h3></div>
+
+ <div class="bottom-grid">
+  <div class="card">
+   <div class="chart-head"><h3>Растениеводство</h3><span>Сезон 2026</span></div>
+
+   <div class="crop-card">
+    <img class="crop-image" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=400&q=80" alt="Поля">
+    <div class="crop-info"><div class="crop-name">Пшеница</div><div class="crop-desc">План урожайности</div><div class="progress"><span style="width:76%"></span></div></div>
+    <div class="crop-percent">76%</div>
+   </div>
+
+   <div class="crop-card">
+    <img class="crop-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="Зерновые поля">
+    <div class="crop-info"><div class="crop-name">Кукуруза</div><div class="crop-desc">План урожайности</div><div class="progress"><span style="width:58%"></span></div></div>
+    <div class="crop-percent">58%</div>
+   </div>
+
+   <div class="crop-card">
+    <img class="crop-image" src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=400&q=80" alt="Сельское хозяйство">
+    <div class="crop-info"><div class="crop-name">Подсолнечник</div><div class="crop-desc">План урожайности</div><div class="progress"><span style="width:42%"></span></div></div>
+    <div class="crop-percent">42%</div>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="chart-head"><h3>Последние события</h3><span>Журнал</span></div>
+   <div class="event"><div class="event-dot"></div><div><div class="event-text">Обновлены показатели финансового отчёта</div><div class="event-time">Сегодня · 10:42</div></div></div>
+   <div class="event"><div class="event-dot"></div><div><div class="event-text">Добавлены данные по посевной площади</div><div class="event-time">Сегодня · 09:18</div></div></div>
+   <div class="event"><div class="event-dot"></div><div><div class="event-text">Планирование сезонных расходов</div><div class="event-time">Вчера · 16:30</div></div></div>
+   <div class="event"><div class="event-dot"></div><div><div class="event-text">Анализ производственных показателей</div><div class="event-time">Вчера · 11:05</div></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- CROPS -->
+<section class="section-page" id="crops">
+ <h1>Растениеводство</h1>
+ <div class="subtitle">Управление посевами, полями и урожайностью</div>
+ <div class="hero" style="margin-top:25px;min-height:240px">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85" alt="Поля">
+  <div class="hero-overlay"></div>
+  <div class="hero-content"><h2>Земля.<br>Рост. Урожай.</h2><p>Контроль земельного фонда и производственных процессов.</p></div>
+ </div>
+ <div class="section-heading"><h3>Структура посевов</h3></div>
+ <div class="kpis">
+  <div class="card"><div class="kpi-label">Пшеница</div><div class="kpi-value">2 100 га</div><div class="kpi-foot">44% земель</div></div>
+  <div class="card"><div class="kpi-label">Кукуруза</div><div class="kpi-value">1 240 га</div><div class="kpi-foot">26% земель</div></div>
+  <div class="card"><div class="kpi-label">Подсолнечник</div><div class="kpi-value">980 га</div><div class="kpi-foot">20% земель</div></div>
+  <div class="card"><div class="kpi-label">Другие культуры</div><div class="kpi-value">500 га</div><div class="kpi-foot">10% земель</div></div>
+ </div>
+ <div class="card" style="margin-top:20px"><h3>Производственный план</h3><p class="subtitle">Модуль растениеводства будет расширен инструментами учета полей, урожайности, затрат и агротехнологий.</p></div>
+</section>
+
+<!-- LIVESTOCK -->
+<section class="section-page" id="livestock">
+ <h1>Животноводство</h1>
+ <div class="subtitle">Контроль поголовья и производственных показателей</div>
+ <div class="hero" style="margin-top:25px;min-height:240px">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1600&q=85" alt="Коровы">
+  <div class="hero-overlay"></div>
+  <div class="hero-content"><h2>Здоровое стадо.<br>Сильное хозяйство.</h2><p>Мониторинг животных, продуктивности и затрат.</p></div>
+ </div>
+ <div class="section-heading"><h3>Показатели поголовья</h3></div>
+ <div class="kpis">
+  <div class="card"><div class="kpi-label">Общее поголовье</div><div class="kpi-value">1 240</div><div class="kpi-foot">Голов</div></div>
+  <div class="card"><div class="kpi-label">Дойное стадо</div><div class="kpi-value">460</div><div class="kpi-foot">Голов</div></div>
+  <div class="card"><div class="kpi-label">Молодняк</div><div class="kpi-value">320</div><div class="kpi-foot">Голов</div></div>
+  <div class="card"><div class="kpi-label">Средний удой</div><div class="kpi-value">—</div><div class="kpi-foot">Данные не введены</div></div>
+ </div>
+ <div class="card" style="margin-top:20px"><h3>Управление животноводством</h3><p class="subtitle">В дальнейшем здесь появятся учет животных, молочная продуктивность, кормление, ветеринария и анализ себестоимости.</p></div>
+</section>
+
+<!-- FINANCE -->
+<section class="section-page" id="finance">
+ <h1>Финансы</h1>
+ <div class="subtitle">Финансовая прозрачность и контроль прибыльности</div>
+ <div class="section-heading"><h3>Финансовый обзор</h3></div>
+ <div class="kpis">
+  <div class="card"><div class="kpi-label">Выручка</div><div class="kpi-value">48,6 млн ₽</div><div class="kpi-foot">Демо-данные</div></div>
+  <div class="card"><div class="kpi-label">Расходы</div><div class="kpi-value">36,2 млн ₽</div><div class="kpi-foot">Демо-данные</div></div>
+  <div class="card"><div class="kpi-label">Прибыль</div><div class="kpi-value">12,4 млн ₽</div><div class="kpi-foot">Демо-данные</div></div>
+  <div class="card"><div class="kpi-label">Рентабельность</div><div class="kpi-value">25,5%</div><div class="kpi-foot">Демо-данные</div></div>
+ </div>
+ <div class="card" style="margin-top:20px"><h3>Финансовое управление</h3><p class="subtitle">Будущий модуль позволит вести бюджет, денежный поток, себестоимость продукции и финансовые сценарии.</p></div>
+</section>
+
+<!-- AI -->
+<section class="section-page" id="ai">
+ <h1>AI Аналитика</h1>
+ <div class="subtitle">Интеллектуальный центр принятия решений</div>
+ <div class="hero" style="margin-top:25px;min-height:240px">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=85" alt="Природа">
+  <div class="hero-overlay"></div>
+  <div class="hero-content"><div class="hero-tag">✦ ARTIFICIAL INTELLIGENCE</div><h2>Данные превращаются<br>в решения.</h2><p>Анализируйте риски, находите возможности и планируйте будущее предприятия.</p></div>
+ </div>
+ <div class="section-heading"><h3>Интеллектуальные инструменты</h3></div>
+ <div class="bottom-grid">
+  <div class="ai-card"><h3>Анализ эффективности</h3><p>Анализ доходов, затрат, производственных показателей и потенциальных отклонений.</p><div class="ai-insight">Цель: выявлять неэффективные процессы и возможные точки роста.</div></div>
+  <div class="ai-card"><h3>Прогнозирование</h3><p>Сценарное планирование урожайности, себестоимости, доходов и рисков.</p><div class="ai-insight">Цель: принимать решения на основе данных и сценариев.</div></div>
+  <div class="ai-card"><h3>Рекомендации</h3><p>Интеллектуальные рекомендации по оптимизации ресурсов и производственных процессов.</p><div class="ai-insight">Цель: оптимизировать управление хозяйством.</div></div>
+  <div class="ai-card"><h3>Контроль рисков</h3><p>Выявление отклонений в показателях, расходов и производственных планов.</p><div class="ai-insight">Цель: предупреждать потенциальные проблемы.</div></div>
+ </div>
+</section>
+
+<!-- SIMULATOR -->
+<section class="section-page" id="simulator">
+ <h1>Симулятор хозяйства</h1>
+ <div class="subtitle">Сценарное моделирование и прогнозирование</div>
+ <div class="hero" style="margin-top:25px;min-height:240px">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=1600&q=85" alt="Агропейзаж">
+  <div class="hero-overlay"></div>
+  <div class="hero-content"><h2>Планируйте.<br>Моделируйте.<br>Выбирайте.</h2><p>Сценарии развития предприятия и оценка решений.</p></div>
+ </div>
+ <div class="card" style="margin-top:20px"><h3>Сценарное планирование</h3><p class="subtitle">Модуль будет включать моделирование затрат, цен, урожайности и финансовых результатов.</p></div>
+</section>
+
+<!-- REPORTS -->
+<section class="section-page" id="reports">
+ <h1>Отчёты</h1>
+ <div class="subtitle">Сводная аналитика предприятия</div>
+ <div class="section-heading"><h3>Центр отчетности</h3></div>
+ <div class="bottom-grid">
+  <div class="card"><div class="kpi-icon">▤</div><h3>Финансовые отчёты</h3><p class="subtitle">Выручка, расходы, прибыль, бюджет.</p></div>
+  <div class="card"><div class="kpi-icon">▤</div><h3>Производственные отчёты</h3><p class="subtitle">Поля, урожайность, поголовье, продукция.</p></div>
+  <div class="card"><div class="kpi-icon">▤</div><h3>Аналитические отчёты</h3><p class="subtitle">Показатели эффективности и динамика.</p></div>
+  <div class="card"><div class="kpi-icon">▤</div><h3>Отчёты AI</h3><p class="subtitle">Прогнозы, сценарии и рекомендации.</p></div>
+ </div>
+</section>
+
+<!-- DATA -->
+<section class="section-page" id="data">
+ <h1>Данные предприятия</h1>
+ <div class="subtitle">Единая база данных сельскохозяйственного предприятия</div>
+ <div class="section-heading"><h3>Структура данных</h3></div>
+ <div class="bottom-grid">
+  <div class="card"><h3>Земельный фонд</h3><p class="subtitle">Поля, площадь, культуры, характеристики.</p></div>
+  <div class="card"><h3>Животные</h3><p class="subtitle">Поголовье, категории, продуктивность.</p></div>
+  <div class="card"><h3>Финансы</h3><p class="subtitle">Доходы, расходы, инвестиции.</p></div>
+  <div class="card"><h3>Ресурсы</h3><p class="subtitle">Техника, материалы, персонал.</p></div>
+ </div>
+</section>
+
+<!-- SETTINGS -->
+<section class="section-page" id="settings">
+ <h1>Настройки</h1>
+ <div class="subtitle">Управление рабочей средой ProfitPilot AI</div>
+ <div class="card" style="margin-top:25px"><h3>Профиль</h3><p class="subtitle">Арина Я. · Администратор</p></div>
+ <div class="card" style="margin-top:15px"><h3>Рабочая среда</h3><p class="subtitle">ProfitPilot AI · Agricultural Intelligence</p></div>
+ <div class="card" style="margin-top:15px"><h3>Версия платформы</h3><p class="subtitle">Дизайн-прототип · 2026</p></div>
+</section>
 
 </main>
 </div>
@@ -877,116 +624,32 @@ function showPage(id,element){
  document.querySelectorAll('.section-page').forEach(p=>p.classList.remove('active'));
  const target=document.getElementById(id);
  if(target)target.classList.add('active');
+
  document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));
- if(element)element.classList.add('active');
- else{
+
+ if(element){
+  element.classList.add('active');
+ }else{
   document.querySelectorAll('.nav').forEach(n=>{
-   if(n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+id+"'"))n.classList.add('active');
+   if(n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+id+"'")){
+    n.classList.add('active');
+   }
   });
  }
+
  const names={
   home:'Обзор',crops:'Растениеводство',livestock:'Животноводство',
   finance:'Финансы',ai:'AI Аналитика',simulator:'Симулятор',
   reports:'Отчёты',data:'Данные предприятия',settings:'Настройки'
  };
+
  document.getElementById('crumb').textContent=names[id]||'Обзор';
  window.scrollTo(0,0);
 }
+
 const d=new Date();
-document.getElementById('today').textContent=d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
-
-/* PROFITPILOT AI PREMIUM PANEL */
-
-(function(){
-  const home=document.getElementById('home');
-  if(!home)return;
-
-  const hero=home.querySelector('.hero');
-  if(!hero)return;
-
-  const panel=document.createElement('div');
-
-  panel.className='ai-premium-panel';
-
-  panel.innerHTML=`
-  <div class="ai-premium-inner">
-
-    <div class="ai-premium-left">
-      <div class="ai-premium-label">
-        PROFITPILOT INTELLIGENCE
-      </div>
-
-      <div class="ai-premium-title">
-        Ваш интеллектуальный<br>
-        центр управления
-      </div>
-
-      <div class="ai-premium-description">
-        Анализ производственных, финансовых
-        и операционных показателей предприятия
-        в единой системе.
-      </div>
-
-      <div class="ai-premium-features">
-        <div class="ai-feature">
-          <span class="ai-feature-dot"></span>
-          Анализ эффективности
-        </div>
-        <div class="ai-feature">
-          <span class="ai-feature-dot"></span>
-          Прогнозирование
-        </div>
-        <div class="ai-feature">
-          <span class="ai-feature-dot"></span>
-          Выявление рисков
-        </div>
-      </div>
-
-      <button class="ai-premium-btn">
-        Открыть AI центр →
-      </button>
-    </div>
-
-    <div class="ai-premium-visual">
-      <div class="ai-orbit orbit1"></div>
-      <div class="ai-orbit orbit2"></div>
-      <div class="ai-orbit orbit3"></div>
-
-      <div class="ai-core">
-        <div class="ai-core-inner">
-          <span class="ai-core-star">✦</span>
-          <span class="ai-core-text">AI</span>
-        </div>
-      </div>
-
-      <div class="ai-float ai-float-1">
-        <div class="ai-float-title">Аналитика</div>
-        <div class="ai-float-sub">Data intelligence</div>
-      </div>
-
-      <div class="ai-float ai-float-2">
-        <div class="ai-float-title">Прогноз</div>
-        <div class="ai-float-sub">Smart planning</div>
-      </div>
-    </div>
-
-  </div>
-  `;
-
-  hero.insertAdjacentElement('afterend',panel);
-
-  const btn=panel.querySelector('.ai-premium-btn');
-
-  btn.addEventListener('click',function(){
-    showPage('ai',null);
-  });
-
-})();
- 
+document.getElementById('today').textContent=
+ d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
 </script>
 </body>
 </html>
-
-
-
-
