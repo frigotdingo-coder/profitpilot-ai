@@ -646,7 +646,35 @@ function showPage(id,element){
  document.getElementById('crumb').textContent=names[id]||'Обзор';
  window.scrollTo(0,0);
 }
+/* ЗАЩИТА ИЗОБРАЖЕНИЙ */
+const fallbackImage = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#b8cdb0"/>
+<stop offset="100%" stop-color="#173d2d"/>
+</linearGradient>
+</defs>
+<rect width="800" height="450" fill="url(#g)"/>
+<circle cx="620" cy="100" r="55" fill="#e4e9c7" opacity=".8"/>
+<path d="M0 280 Q200 140 400 280 T800 260 V450 H0Z" fill="#50764c"/>
+<path d="M0 340 Q200 230 400 350 T800 310 V450 H0Z" fill="#315d3d"/>
+<path d="M0 390 Q200 300 400 390 T800 350 V450 H0Z" fill="#173d2d"/>
+</svg>`);
 
+document.querySelectorAll('img').forEach(img => {
+    img.loading = 'eager';
+    img.decoding = 'async';
+
+    img.addEventListener('error', function () {
+        if (!this.dataset.fallback) {
+            this.dataset.fallback = '1';
+            this.src = fallbackImage;
+        } else {
+            this.style.display = 'none';
+        }
+    });
+});
 const d=new Date();
 document.getElementById('today').textContent=
  d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
