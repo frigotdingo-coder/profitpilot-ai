@@ -1,16 +1,16 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ProfitPilot AI</title>
+<title>ProfitPilot AI — Аналитика хозяйства</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0b1110;color:#e7efeb;font-family:Arial,sans-serif}
-.sidebar{position:fixed;left:0;top:0;width:235px;height:100vh;background:#101917;border-right:1px solid #25342e;padding:26px 18px}
-.logo{font-size:22px;font-weight:bold;color:#8de0b0;margin-bottom:35px}
-.nav{display:block;padding:13px;color:#9eaea6;text-decoration:none;border-radius:9px;margin:5px 0}
+.sidebar{position:fixed;left:0;top:0;width:235px;height:100vh;background:#101917;border-right:1px solid #25342e;padding:25px 18px;overflow:auto}
+.logo{font-size:22px;font-weight:bold;color:#8de0b0;margin-bottom:30px}
+.nav{display:block;width:100%;text-align:left;padding:13px;color:#9eaea6;text-decoration:none;border-radius:9px;margin:5px 0;background:none;border:0;font-size:15px;cursor:pointer}
 .nav:hover,.nav.active{background:#20332b;color:#9de0b0}
 main{margin-left:235px;padding:35px;max-width:1500px}
 h1{font-size:30px;margin:0 0 10px}
@@ -25,63 +25,130 @@ canvas{width:100%;height:260px}
 table{width:100%;border-collapse:collapse;margin-top:20px}
 th,td{text-align:left;padding:15px;border-bottom:1px solid #293832}
 th{color:#91a39a}
-button{background:#8de0b0;color:#102018;border:0;padding:12px 18px;border-radius:9px;cursor:pointer;font-weight:bold}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.sidebar{width:190px}main{margin-left:190px;padding:20px}}
-@media(max-width:600px){.sidebar{position:relative;width:100%;height:auto;padding:15px}.logo{margin-bottom:10px}.nav{display:inline-block;padding:8px}main{margin:0;padding:15px}.grid{grid-template-columns:1fr 1fr}h1{font-size:24px}.value{font-size:22px}}
+button.action{background:#8de0b0;color:#102018;border:0;padding:12px 18px;border-radius:9px;cursor:pointer;font-weight:bold}
+.content{min-height:300px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar{width:190px}main{margin-left:190px;padding:20px}}
+@media(max-width:600px){.sidebar{position:relative;width:100%;height:auto;padding:15px}.logo{margin-bottom:10px}.nav{display:inline-block;width:auto;padding:9px}.sidebar nav{display:flex;flex-wrap:wrap}main{margin:0;padding:15px}.grid{grid-template-columns:1fr 1fr}h1{font-size:24px}.value{font-size:22px}}
 </style>
 </head>
 <body>
 <aside class="sidebar">
 <div class="logo">✦ ProfitPilot AI</div>
-<a class="nav active" href="#">Dashboard</a>
-<a class="nav" href="#">Analytics</a>
-<a class="nav" href="#">Production</a>
-<a class="nav" href="#">Inventory</a>
-<a class="nav" href="#">Finance</a>
-<a class="nav" href="#">AI Insights</a>
-<a class="nav" href="#">Settings</a>
+<nav id="nav">
+<button class="nav active" data-page="dashboard">⌂ Главная</button>
+<button class="nav" data-page="analytics">▤ Аналитика</button>
+<button class="nav" data-page="production">🌾 Производство</button>
+<button class="nav" data-page="inventory">▣ Склад</button>
+<button class="nav" data-page="finance">₽ Финансы</button>
+<button class="nav" data-page="insights">✦ ИИ-аналитика</button>
+<button class="nav" data-page="settings">⚙ Настройки</button>
+</nav>
 </aside>
-<main>
-<h1>Business Overview</h1>
-<div class="sub">AI-powered agricultural business intelligence</div>
-<div class="grid">
-<div class="card"><div class="label">Total Revenue</div><div class="value">$284,650</div><div class="green">+12.8%</div></div>
-<div class="card"><div class="label">Net Profit</div><div class="value">$76,420</div><div class="green">+8.4%</div></div>
-<div class="card"><div class="label">Production</div><div class="value">1,842 t</div><div class="green">+5.2%</div></div>
-<div class="card"><div class="label">Profit Margin</div><div class="value">26.8%</div><div class="green">+2.1%</div></div>
-</div>
-<div class="card chart">
-<div class="label">Revenue & Profit Performance</div>
-<canvas id="chart"></canvas>
-</div>
-<div class="card" style="margin-top:22px">
-<div class="label">Production Overview</div>
-<table>
-<thead><tr><th>Crop</th><th>Volume</th><th>Revenue</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td>Wheat</td><td>840 t</td><td>$124,500</td><td class="green">Stable</td></tr>
-<tr><td>Corn</td><td>620 t</td><td>$98,200</td><td class="green">Growing</td></tr>
-<tr><td>Barley</td><td>382 t</td><td>$61,950</td><td class="green">Stable</td></tr>
-</tbody>
-</table>
-</div>
-<div class="card" style="margin-top:22px">
-<div class="label">AI Business Insight</div>
-<div class="value" style="font-size:20px">Operational efficiency is improving</div>
-<p style="color:#a8b8af">Current indicators suggest positive revenue growth and improved profitability. Review production costs and resource allocation to identify additional savings.</p>
-</div>
-</main>
+<main id="main"></main>
 <script>
+const main=document.getElementById('main');
+const nav=document.getElementById('nav');
+let current='dashboard';
+
+const crops=[
+['Пшеница','840 т','4 850 000 ₽','Стабильно'],
+['Кукуруза','620 т','3 920 000 ₽','Рост'],
+['Ячмень','382 т','2 450 000 ₽','Стабильно']
+];
+
+function table(headers,rows){
+return `<div style="overflow:auto"><table><thead><tr>${headers.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+
+function dashboard(){
+return `
+<h1>Обзор хозяйства</h1>
+<div class="sub">Управление и аналитика сельскохозяйственного бизнеса</div>
+<div class="grid">
+<div class="card"><div class="label">Общая выручка</div><div class="value">11,22 млн ₽</div><div class="green">▲ 12,8%</div></div>
+<div class="card"><div class="label">Чистая прибыль</div><div class="value">3,01 млн ₽</div><div class="green">▲ 8,4%</div></div>
+<div class="card"><div class="label">Объём производства</div><div class="value">1 842 т</div><div class="green">▲ 5,2%</div></div>
+<div class="card"><div class="label">Рентабельность</div><div class="value">26,8%</div><div class="green">▲ 2,1%</div></div>
+</div>
+<div class="card chart"><div class="label">Динамика выручки и прибыли</div><canvas id="chart"></canvas></div>
+<div class="card" style="margin-top:22px"><div class="label">Производство по культурам</div>${table(['Культура','Объём','Выручка','Статус'],crops)}</div>
+<div class="card" style="margin-top:22px"><div class="label">Рекомендация ИИ</div><div class="value" style="font-size:20px">Повышение операционной эффективности</div><p style="color:#a8b8af">Показатели демонстрируют рост выручки. Рекомендуется проанализировать себестоимость и распределение ресурсов для поиска дополнительных возможностей сокращения расходов.</p></div>`;
+}
+
+function analytics(){
+return `<h1>Аналитика</h1><div class="sub">Финансовые и операционные показатели</div>
+<div class="grid">
+<div class="card"><div class="label">Выручка</div><div class="value">11,22 млн ₽</div></div>
+<div class="card"><div class="label">Расходы</div><div class="value">8,21 млн ₽</div></div>
+<div class="card"><div class="label">Прибыль</div><div class="value">3,01 млн ₽</div></div>
+<div class="card"><div class="label">Рентабельность</div><div class="value">26,8%</div></div>
+</div>
+<div class="card chart"><div class="label">Динамика показателей</div><canvas id="chart"></canvas></div>
+<div class="card" style="margin-top:22px">${table(['Показатель','Значение','Изменение'],[['Выручка','11,22 млн ₽','+12,8%'],['Расходы','8,21 млн ₽','+4,2%'],['Прибыль','3,01 млн ₽','+8,4%'],['Рентабельность','26,8%','+2,1%']])}</div>`;
+}
+
+function production(){
+return `<h1>Производство</h1><div class="sub">Объёмы производства по культурам</div>
+<div class="grid">
+<div class="card"><div class="label">Всего</div><div class="value">1 842 т</div></div>
+<div class="card"><div class="label">Пшеница</div><div class="value">840 т</div></div>
+<div class="card"><div class="label">Кукуруза</div><div class="value">620 т</div></div>
+<div class="card"><div class="label">Ячмень</div><div class="value">382 т</div></div>
+</div>
+<div class="card" style="margin-top:22px">${table(['Культура','Объём','Выручка','Статус'],crops)}</div>`;
+}
+
+function inventory(){
+return `<h1>Склад</h1><div class="sub">Управление запасами и продукцией</div>
+<div class="grid">
+<div class="card"><div class="label">Общий запас</div><div class="value">1 842 т</div></div>
+<div class="card"><div class="label">Пшеница</div><div class="value">840 т</div></div>
+<div class="card"><div class="label">Кукуруза</div><div class="value">620 т</div></div>
+<div class="card"><div class="label">Ячмень</div><div class="value">382 т</div></div>
+</div>
+<div class="card" style="margin-top:22px">${table(['Продукция','Остаток','Единица'],[['Пшеница','840','тонн'],['Кукуруза','620','тонн'],['Ячмень','382','тонн']])}</div>`;
+}
+
+function finance(){
+return `<h1>Финансы</h1><div class="sub">Финансовое состояние предприятия</div>
+<div class="grid">
+<div class="card"><div class="label">Выручка</div><div class="value">11,22 млн ₽</div></div>
+<div class="card"><div class="label">Расходы</div><div class="value">8,21 млн ₽</div></div>
+<div class="card"><div class="label">Прибыль</div><div class="value">3,01 млн ₽</div></div>
+<div class="card"><div class="label">Маржа</div><div class="value">26,8%</div></div>
+</div>
+<div class="card" style="margin-top:22px">${table(['Статья','Сумма'],[['Выручка','11 220 000 ₽'],['Расходы','8 210 000 ₽'],['Чистая прибыль','3 010 000 ₽']])}</div>`;
+}
+
+function insights(){
+return `<h1>ИИ-аналитика</h1><div class="sub">Интеллектуальные рекомендации для бизнеса</div>
+<div class="card"><div class="value" style="font-size:22px">✦ Анализ бизнеса</div>
+<p>На основе демонстрационных показателей система выявляет следующие направления:</p>
+<ul><li>Анализ затрат на производство.</li><li>Контроль рентабельности культур.</li><li>Оптимизация использования ресурсов.</li><li>Планирование продаж и запасов.</li></ul>
+<p class="green">Текущая рентабельность: 26,8%</p>
+<p style="color:#9eaea6">Это демонстрационные рекомендации, не результат подключения реального ИИ.</p></div>`;
+}
+
+function settings(){
+return `<h1>Настройки</h1><div class="sub">Настройки интерфейса</div>
+<div class="card"><h3>ProfitPilot AI</h3><p>Язык интерфейса: Русский</p><p>Версия: Demo 1.1</p><p>Платформа управления сельскохозяйственным предприятием.</p></div>`;
+}
+
+const pages={dashboard,analytics,production,inventory,finance,insights,settings};
+
+function drawChart(){
 const c=document.getElementById('chart');
+if(!c)return;
 const ctx=c.getContext('2d');
-function draw(){
-const d=window.devicePixelRatio||1;
-c.width=c.clientWidth*d;
-c.height=260*d;
+const w=c.clientWidth,h=260,d=window.devicePixelRatio||1;
+if(w<1)return;
+c.width=w*d;c.height=h*d;
 ctx.scale(d,d);
-const w=c.clientWidth,h=260;
 ctx.strokeStyle='#293832';
-for(let i=0;i<5;i++){let y=30+i*45;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+for(let i=0;i<5;i++){
+let y=30+i*45;
+ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();
+}
 const a=[65,85,70,110,95,140,125,170,155,205,190,230];
 function line(data,color){
 ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=3;
@@ -91,9 +158,23 @@ ctx.stroke();
 line(a,'#8de0b0');
 line(a.map(v=>v*.65),'#65a7d9');
 }
-draw();
-window.addEventListener('resize',()=>draw());
+
+function show(key){
+if(!pages[key])return;
+current=key;
+main.innerHTML=pages[key]();
+document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.page===key));
+if(document.getElementById('chart'))drawChart();
+}
+
+nav.addEventListener('click',e=>{
+const b=e.target.closest('[data-page]');
+if(b)show(b.dataset.page);
+});
+window.addEventListener('resize',()=>{if(document.getElementById('chart'))drawChart()});
+show('dashboard');
 </script>
 </body>
 </html>
+
 
